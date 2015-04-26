@@ -1,0 +1,8 @@
+/target/
+/.idea/libraries/
+/.idea/cssxfire.xml
+/.idea/workspace.xml
+.DS_Store
+/.idea/
+/hivemq-authentication-example.iml
+/dependency-reduced-pom.xml

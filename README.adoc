@@ -1,0 +1,11 @@
+== HiveMQ Authentication Example Plugin
+
+This is an example plugin that show how you can easily implement custom authentication logic in HiveMQ.
+The plugin has 2 different callback, which demonstrate how to obtain username/password and a X.509 certificate for authentication.
+
+
+=== Notice
+There is only a dummy implementation used, which returns true all the time.
+Please implement your own logic, before using the plugin in production!
+
+
