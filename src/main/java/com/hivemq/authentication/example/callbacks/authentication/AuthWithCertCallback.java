@@ -16,17 +16,16 @@
 
 package com.hivemq.authentication.example.callbacks.authentication;
 
-import com.dcsquare.hivemq.spi.callback.CallbackPriority;
-import com.dcsquare.hivemq.spi.callback.exception.AuthenticationException;
-import com.dcsquare.hivemq.spi.callback.security.OnAuthenticationCallback;
-import com.dcsquare.hivemq.spi.security.ClientCredentialsData;
+import com.hivemq.spi.callback.CallbackPriority;
+import com.hivemq.spi.callback.exception.AuthenticationException;
+import com.hivemq.spi.callback.security.OnAuthenticationCallback;
+import com.hivemq.spi.security.ClientCredentialsData;
+import com.hivemq.spi.security.SslClientCertificate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.security.cert.Certificate;
-
 /**
- * @author Christian Götz
+ * @author Florian Limpoeck
  */
 public class AuthWithCertCallback implements OnAuthenticationCallback {
 
@@ -38,7 +37,7 @@ public class AuthWithCertCallback implements OnAuthenticationCallback {
      *
      * @param clientCredentialsData All information from the connecting MQTT client
      * @return true, if the provided certificate is valid, false if no certificate was there or it was invalid
-     * @throws com.dcsquare.hivemq.spi.callback.exception.AuthenticationException
+     * @throws com.hivemq.spi.callback.exception.AuthenticationException
      *          if the client is not authorized and it should be disconnected immediately
      */
 
@@ -50,7 +49,7 @@ public class AuthWithCertCallback implements OnAuthenticationCallback {
         log.info("A new client with id {} requests authentication from the AuthWithCertCallback", clientId);
 
         if (clientCredentialsData.getCertificate().isPresent()) {
-            Certificate certificate = clientCredentialsData.getCertificate().get();
+            SslClientCertificate certificate = clientCredentialsData.getCertificate().get();
 
             log.info("The client provides a X.509 certificate: {}", certificate);
 
@@ -64,7 +63,7 @@ public class AuthWithCertCallback implements OnAuthenticationCallback {
         return false;
     }
 
-    private boolean isCertificateValid(Certificate certificate) {
+    private boolean isCertificateValid(SslClientCertificate certificate) {
         // Here goes your custom certificate validation logic !!!
         // This is just a dummy implementation returning true all the time !!
         log.warn("This is the HiveMQ authentication example, please customize the authentication logic and then remove this warning!");

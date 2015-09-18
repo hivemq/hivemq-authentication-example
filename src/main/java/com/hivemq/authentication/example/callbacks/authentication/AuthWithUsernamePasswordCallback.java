@@ -16,16 +16,16 @@
 
 package com.hivemq.authentication.example.callbacks.authentication;
 
-import com.dcsquare.hivemq.spi.callback.CallbackPriority;
-import com.dcsquare.hivemq.spi.callback.exception.AuthenticationException;
-import com.dcsquare.hivemq.spi.callback.security.OnAuthenticationCallback;
-import com.dcsquare.hivemq.spi.message.ReturnCode;
-import com.dcsquare.hivemq.spi.security.ClientCredentialsData;
+import com.hivemq.spi.callback.CallbackPriority;
+import com.hivemq.spi.callback.exception.AuthenticationException;
+import com.hivemq.spi.callback.security.OnAuthenticationCallback;
+import com.hivemq.spi.message.ReturnCode;
+import com.hivemq.spi.security.ClientCredentialsData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author Christian Götz
+ * @author Florian Limpoeck
  */
 public class AuthWithUsernamePasswordCallback implements OnAuthenticationCallback {
 
@@ -51,7 +51,7 @@ public class AuthWithUsernamePasswordCallback implements OnAuthenticationCallbac
             String username = clientCredentialsData.getUsername().get();
             String password = clientCredentialsData.getPassword().get();
 
-            log.info("The client provides the following username and password: {}/{}", username, password);
+            log.info("The client provides the following username: {}", username);
 
             if (isUserValid(username, password)) {
                 return true;
@@ -66,12 +66,19 @@ public class AuthWithUsernamePasswordCallback implements OnAuthenticationCallbac
     private boolean isUserValid(String username, String password) {
 
         // Here goes your custom authentication logic !!!
-        // This is just a dummy implementation returning true all the time !!
+        // This is just a dummy implementation returning true at dummy/password !!
 
         // You want to validate username and password against your database or third party service
-        log.warn("This is the HiveMQ authentication example, please customize the authentication logic and then remove this warning!");
-        log.info("Username/password is valid!");
-        return true;    // DUMMY IMPLEMENTATION
+
+        if(username.equals("dummy") && password.equals("password")){
+            log.warn("This is the HiveMQ authentication example, please customize the authentication logic and then remove this warning!");
+            log.info("Username/password is valid!");
+            return true;
+        }
+
+        else {
+            return false;
+        }
     }
 
     /**

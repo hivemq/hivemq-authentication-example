@@ -16,8 +16,8 @@
 
 package com.hivemq.authentication.example.plugin;
 
-import com.dcsquare.hivemq.spi.PluginEntryPoint;
-import com.dcsquare.hivemq.spi.callback.registry.CallbackRegistry;
+import com.hivemq.spi.PluginEntryPoint;
+import com.hivemq.spi.callback.registry.CallbackRegistry;
 import com.hivemq.authentication.example.callbacks.ClientConnect;
 import com.hivemq.authentication.example.callbacks.authentication.AuthWithCertCallback;
 import com.hivemq.authentication.example.callbacks.authentication.AuthWithUsernamePasswordCallback;
@@ -27,6 +27,7 @@ import javax.inject.Inject;
 
 /**
  * This is the main class of the plugin, which is instanciated during the HiveMQ start up process.
+ * @author Florian Limpoeck
  */
 public class AuthenticationExampleMainClass extends PluginEntryPoint {
 
@@ -36,10 +37,10 @@ public class AuthenticationExampleMainClass extends PluginEntryPoint {
 
     @Inject
     public AuthenticationExampleMainClass(final ClientConnect clientConnect,
-                                          final AuthWithUsernamePasswordCallback authWithUsernamePasswordCallbackCallback,
+                                          final AuthWithUsernamePasswordCallback authWithUsernamePasswordCallback,
                                           final AuthWithCertCallback authWithCertCallback) {
         this.clientConnect = clientConnect;
-        this.authWithUsernamePasswordCallback = authWithUsernamePasswordCallbackCallback;
+        this.authWithUsernamePasswordCallback = authWithUsernamePasswordCallback;
         this.authWithCertCallback = authWithCertCallback;
     }
 

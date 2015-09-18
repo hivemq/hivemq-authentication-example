@@ -20,14 +20,21 @@
 
     <groupId>com.hivemq</groupId>
     <artifactId>hivemq-authentication-example</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>3.0</version>
 
+    <developers>
+        <developer>
+            <name>Florian Limpoeck</name>
+            <organization>dc-square GmbH</organization>
+            <url>http://www.dc-square.de</url>
+        </developer>
+    </developers>
 
     <dependencies>
         <dependency>
             <groupId>com.hivemq</groupId>
             <artifactId>hivemq-spi</artifactId>
-            <version>2.3.0</version>
+            <version>3.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
@@ -38,8 +45,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -55,7 +62,7 @@
                         <configuration>
                             <artifactSet>
                                 <excludes>
-                                    <exclude>com.dcsquare.hivemq:hivemq-spi</exclude>
+                                    <exclude>com.hivemq:hivemq-spi</exclude>
                                     <exclude>com.google.inject:*</exclude>
                                     <exclude>com.google.guava:*</exclude>
                                     <exclude>org.slf4j:*</exclude>
@@ -77,7 +84,7 @@
                     <plugin>
                         <groupId>com.hivemq</groupId>
                         <artifactId>hivemq-maven-plugin</artifactId>
-                        <version>1.0.0</version>
+                        <version>3.0.0</version>
                         <executions>
                             <execution>
                                 <id>hivemq</id>
@@ -86,7 +93,7 @@
                                     <goal>hivemq</goal>
                                 </goals>
                                 <configuration>
-                                    <hiveMQDir>/Applications/hivemq-2.3.1</hiveMQDir>
+                                    <hiveMQDir>FIXME, insert your HiveMQ directory here!</hiveMQDir>
                                     <debugMode>SERVER</debugMode>
                                 </configuration>
                             </execution>

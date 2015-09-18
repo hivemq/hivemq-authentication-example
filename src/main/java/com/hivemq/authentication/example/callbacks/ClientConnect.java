@@ -16,11 +16,14 @@
 
 package com.hivemq.authentication.example.callbacks;
 
-import com.dcsquare.hivemq.spi.callback.CallbackPriority;
-import com.dcsquare.hivemq.spi.callback.events.OnConnectCallback;
-import com.dcsquare.hivemq.spi.callback.exception.RefusedConnectionException;
-import com.dcsquare.hivemq.spi.message.CONNECT;
-import com.dcsquare.hivemq.spi.security.ClientData;
+import com.hivemq.spi.callback.CallbackPriority;
+import com.hivemq.spi.callback.events.OnConnectCallback;
+import com.hivemq.spi.callback.events.OnSubscribeCallback;
+import com.hivemq.spi.callback.exception.InvalidSubscriptionException;
+import com.hivemq.spi.callback.exception.RefusedConnectionException;
+import com.hivemq.spi.message.CONNECT;
+import com.hivemq.spi.message.SUBSCRIBE;
+import com.hivemq.spi.security.ClientData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +34,7 @@ import org.slf4j.LoggerFactory;
  * on the {@link CONNECT} to refuse the connection throwing a
  * {@link RefusedConnectionException}.
  *
- * @author Christian Goetz
+ * @author @author Florian Limpoeck
  */
 public class ClientConnect implements OnConnectCallback {
 
