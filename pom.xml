@@ -20,7 +20,7 @@
 
     <groupId>com.hivemq</groupId>
     <artifactId>hivemq-authentication-example</artifactId>
-    <version>3.0</version>
+    <version>3.0.0</version>
 
     <developers>
         <developer>
