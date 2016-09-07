@@ -20,7 +20,7 @@
 
     <groupId>com.hivemq</groupId>
     <artifactId>hivemq-authentication-example</artifactId>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
 
     <developers>
         <developer>
@@ -34,7 +34,7 @@
         <dependency>
             <groupId>com.hivemq</groupId>
             <artifactId>hivemq-spi</artifactId>
-            <version>3.0.0</version>
+            <version>3.1.0</version>
         </dependency>
     </dependencies>
 
