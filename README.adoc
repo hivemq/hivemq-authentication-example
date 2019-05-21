@@ -8,4 +8,12 @@ The plugin has 2 different callback, which demonstrate how to obtain username/pa
 There is only a dummy implementation used, which returns true all the time.
 Please implement your own logic, before using the plugin in production!
 
+= Contributing
+
+If you want to contribute to HiveMQ Authentication Example, see the link:CONTRIBUTING.md[contribution guidelines].
+
+= License
+
+HiveMQ Authentication Example is licensed under the `APACHE LICENSE, VERSION 2.0`. A copy of the license can be found link:LICENSE.txt[here].
+
 
